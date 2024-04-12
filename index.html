@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View PDF</title>
+    <title>View or Download PDF</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,23 +15,27 @@
             height: 500px; /* Adjust height as needed */
             border: none;
         }
-        p {
+        .download-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
             margin-top: 20px;
+        }
+        .download-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <h1>PDF Viewer</h1>
-    <p>Please click on the PDF to view it.</p>
+    <p>Please click on the button below to view or directly download the PDF.</p>
+    <!-- Ensure you replace 'your_file_id' with your actual Google Drive file ID -->
     <iframe src="https://drive.google.com/file/d/1-SbJyPBxvwWwYoM0iZvUheDHnJ45renr/preview" id="pdfFrame"></iframe>
-    <p>If the PDF does not load, you may need to <a href="https://drive.google.com/uc?export=download&id=1-SbJyPBxvwWwYoM0iZvUheDHnJ45renr" download="DownloadedPDF.pdf">download the PDF directly.</a></p>
-    <script>
-        window.onload = function() {
-            var iframe = document.getElementById('pdfFrame');
-            iframe.contentWindow.document.body.onclick = function() {
-                iframe.contentWindow.location.href = iframe.src;
-            };
-        };
-    </script>
+    <a href="https://drive.google.com/uc?export=download&id=1-SbJyPBxvwWwYoM0iZvUheDHnJ45renr" class="download-button" download="YourDocument.pdf">Download PDF</a>
 </body>
 </html>
