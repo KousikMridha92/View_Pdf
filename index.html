@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Viewer</title>
+    <title>View PDF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            border: none;
+        }
+        p {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Embed code from Google Drive goes here -->
-    <iframe src="https://drive.google.com/file/d/1-SbJyPBxvwWwYoM0iZvUheDHnJ45renr/preview" width="640" height="480"></iframe>
+    <h1>PDF Viewer</h1>
+    <p>Please click on the PDF to view it.</p>
+    <iframe src="https://drive.google.com/file/d/1-SbJyPBxvwWwYoM0iZvUheDHnJ45renr/preview" id="pdfFrame"></iframe>
+    <p>If the PDF does not load, you may need to <a href="https://drive.google.com/uc?export=download&id=1-SbJyPBxvwWwYoM0iZvUheDHnJ45renr" download="DownloadedPDF.pdf">download the PDF directly.</a></p>
+    <script>
+        window.onload = function() {
+            var iframe = document.getElementById('pdfFrame');
+            iframe.contentWindow.document.body.onclick = function() {
+                iframe.contentWindow.location.href = iframe.src;
+            };
+        };
+    </script>
 </body>
 </html>
